@@ -1,0 +1,16 @@
+{
+  "name": "download_video",
+  "input": {
+    "type": "object",
+    "properties": {
+      "url": {"type": "string"}
+    },
+    "required": ["url"]
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "file_path": {"type": "string"}
+    }
+  }
+}

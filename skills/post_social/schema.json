@@ -1,0 +1,16 @@
+{
+  "name": "post_social",
+  "input": {
+    "type": "object",
+    "properties": {
+      "content": {"type": "string"}
+    },
+    "required": ["content"]
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "post_id": {"type": "string"}
+    }
+  }
+}

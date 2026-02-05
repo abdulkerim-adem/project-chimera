@@ -1,0 +1,71 @@
+FFFF                                                                     [100%]
+================================== FAILURES ===================================
+______________________ test_mcp_startup_logged_with_200 _______________________
+
+    def test_mcp_startup_logged_with_200():
+        # We expect a successful startup code 200; if proxy returns 401 we want the test to fail.
+        with open("mcp_sense.log", "r", encoding="utf-8") as fh:
+            data = fh.read()
+        assert '"event": "startup"' in data
+        # This assertion intentionally expects 200 to cause a failing test if proxy demands auth (401).
+>       assert '"code": 200' in data
+E       assert '"code": 200' in '{"ts": "2026-02-05T18:28:04Z", "outgoing": {"url": "https://mcppulse.10academy.org/proxy", "event": "startup", "paylo... "code": 401, "body": "{\\"error\\": \\"invalid_token\\", \\"error_description\\": \\"Authentication required\\"}"}}\n'
+
+tests\test_mcp_logging.py:7: AssertionError
+______________________ test_download_video_returns_dict _______________________
+
+    def test_download_video_returns_dict():
+        # Expectation: returns a dict with 'file_path' key (not implemented yet -> should fail)
+>       res = download("http://example.com/video.mp4")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_skills_interface.py:8: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+url = 'http://example.com/video.mp4'
+
+    def download(url: str):
+>       raise NotImplementedError("download_video skill not implemented yet")
+E       NotImplementedError: download_video skill not implemented yet
+
+skills\download_video\__init__.py:2: NotImplementedError
+________________________ test_transcribe_returns_text _________________________
+
+    def test_transcribe_returns_text():
+        # Expectation: returns a dict with 'text' key (not implemented -> should fail)
+>       res = transcribe("some/path.mp4")
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+tests\test_skills_interface.py:14: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+file_path = 'some/path.mp4'
+
+    def transcribe(file_path: str):
+>       raise NotImplementedError("transcribe skill not implemented yet")
+E       NotImplementedError: transcribe skill not implemented yet
+
+skills\transcribe\__init__.py:2: NotImplementedError
+______________________ test_post_social_returns_post_id _______________________
+
+    def test_post_social_returns_post_id():
+        # Expectation: returns a dict with 'post_id' key (not implemented -> should fail)
+>       res = post("hello world")
+              ^^^^^^^^^^^^^^^^^^^
+
+tests\test_skills_interface.py:20: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
+
+content = 'hello world'
+
+    def post(content: str):
+>       raise NotImplementedError("post_social skill not implemented yet")
+E       NotImplementedError: post_social skill not implemented yet
+
+skills\post_social\__init__.py:2: NotImplementedError
+=========================== short test summary info ===========================
+FAILED tests/test_mcp_logging.py::test_mcp_startup_logged_with_200 - assert '...
+FAILED tests/test_skills_interface.py::test_download_video_returns_dict - Not...
+FAILED tests/test_skills_interface.py::test_transcribe_returns_text - NotImpl...
+FAILED tests/test_skills_interface.py::test_post_social_returns_post_id - Not...
+4 failed in 0.06s

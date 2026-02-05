@@ -1,0 +1,16 @@
+{
+  "name": "transcribe",
+  "input": {
+    "type": "object",
+    "properties": {
+      "file_path": {"type": "string"}
+    },
+    "required": ["file_path"]
+  },
+  "output": {
+    "type": "object",
+    "properties": {
+      "text": {"type": "string"}
+    }
+  }
+}

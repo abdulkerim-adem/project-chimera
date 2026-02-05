@@ -1,0 +1,1 @@
+Post generated content to social platform.
