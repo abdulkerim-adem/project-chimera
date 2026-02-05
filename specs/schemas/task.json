@@ -1,0 +1,115 @@
+{
+  "$defs": {
+    "TaskInput": {
+      "properties": {
+        "inputs": {
+          "additionalProperties": true,
+          "description": "Input parameters for the task",
+          "title": "Inputs",
+          "type": "object"
+        }
+      },
+      "required": [
+        "inputs"
+      ],
+      "title": "TaskInput",
+      "type": "object"
+    }
+  },
+  "properties": {
+    "id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Task unique id",
+      "title": "Id"
+    },
+    "type": {
+      "description": "Task type (e.g., download_video, transcribe)",
+      "title": "Type",
+      "type": "string"
+    },
+    "created_by": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Creator (planner/agent id)",
+      "title": "Created By"
+    },
+    "created_at": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "ISO timestamp",
+      "title": "Created At"
+    },
+    "payload": {
+      "$ref": "#/$defs/TaskInput",
+      "description": "Task payload according to skill schema"
+    },
+    "priority": {
+      "anyOf": [
+        {
+          "type": "integer"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": 0,
+      "description": "Priority; higher means earlier execution",
+      "title": "Priority"
+    },
+    "status": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": "pending",
+      "description": "Task status e.g. pending, running, done, failed",
+      "title": "Status"
+    },
+    "result": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Execution result or error details",
+      "title": "Result"
+    }
+  },
+  "required": [
+    "type",
+    "payload"
+  ],
+  "title": "Task",
+  "type": "object"
+}

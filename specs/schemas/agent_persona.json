@@ -1,0 +1,70 @@
+{
+  "properties": {
+    "id": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Agent persona unique id",
+      "title": "Id"
+    },
+    "name": {
+      "description": "Human-friendly persona name",
+      "title": "Name",
+      "type": "string"
+    },
+    "role": {
+      "anyOf": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": null,
+      "description": "Short role description",
+      "title": "Role"
+    },
+    "goals": {
+      "anyOf": [
+        {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": [],
+      "description": "High-level goals for this persona",
+      "title": "Goals"
+    },
+    "metadata": {
+      "anyOf": [
+        {
+          "additionalProperties": true,
+          "type": "object"
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "default": {},
+      "description": "Freeform metadata",
+      "title": "Metadata"
+    }
+  },
+  "required": [
+    "name"
+  ],
+  "title": "AgentPersona",
+  "type": "object"
+}

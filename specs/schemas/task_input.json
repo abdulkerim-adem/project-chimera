@@ -1,0 +1,15 @@
+{
+  "properties": {
+    "inputs": {
+      "additionalProperties": true,
+      "description": "Input parameters for the task",
+      "title": "Inputs",
+      "type": "object"
+    }
+  },
+  "required": [
+    "inputs"
+  ],
+  "title": "TaskInput",
+  "type": "object"
+}
