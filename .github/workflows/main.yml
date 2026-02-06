@@ -1,0 +1,22 @@
+name: Chimera CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  test-and-govern:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build Docker Image
+        run: docker build -t chimera-ci .
+
+      - name: Run Orchestrator Tests
+        run: docker run --rm chimera-ci python -m pytest tests/
+
+      - name: Run Spec Alignment Check
+        run: docker run --rm chimera-ci python scripts/spec_validator.py

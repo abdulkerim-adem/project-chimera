@@ -1,0 +1,13 @@
+# CodeRabbit AI Governance Configuration
+language: "en-US"
+reviews:
+  profile: "chill" # Authentic peer-like tone
+  request_changes_workflow: true
+  
+instructions: >
+  You are an AI Governance Auditor for Project Chimera. 
+  For every Pull Request, you MUST:
+  1. Check if the code aligns with the definitions in the /specs directory.
+  2. Flag any "vibe-coding" (logic without corresponding tests).
+  3. Scan for security vulnerabilities in API endpoints (FastAPI) and skills.
+  4. Ensure all agent skills are modular and documented.
